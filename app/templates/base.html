@@ -1,0 +1,48 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="d-flex justify-content-center">User Manager</title>
+    <style>
+        .message-body{
+            text-decoration: none;
+        }
+    </style>
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+</head>
+
+<body>
+    <article class="hero is-info is-small">
+        <section class="hero-body">
+            <div>
+                <h1 class="title is-1 d-flex justify-content-center">User Manager</h1>
+            </div>
+            <div class="title is-4 has-text-right-tablet">
+                {% if user.is_authenticated %}
+                    <p style="margin-left: 1%;">Hi {{user}}</p>
+                    <a href="/authorization" class="has-text-danger" style="margin-left: 1%;">Logout</a>
+                {% else %}
+                    <a href="/authorization" style="margin-left: 1%;">Login</a><br>
+                {% endif %}
+            </div>
+        </section>
+        </a>
+    </article>
+    <div class="container">
+        <div class="columns hero-body">
+
+            {% block content %}
+
+            {% endblock content %}
+
+        </div>
+    </div>
+    <script src="static/js/index.js"></script>
+</body>
+</html>

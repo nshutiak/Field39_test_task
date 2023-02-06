@@ -1,0 +1,12 @@
+
+<ul>
+    {% for el in object_list %}
+        <li>{{ el.username }}</li>
+        <li>{{ el.password }}</li>
+        <li>{{ el.email }}</li>
+        <li>{{ el.phone_number }}</li>
+    <hr/>
+    {% empty %}
+        <li>No users yet.</li>
+    {% endfor %}
+</ul>
